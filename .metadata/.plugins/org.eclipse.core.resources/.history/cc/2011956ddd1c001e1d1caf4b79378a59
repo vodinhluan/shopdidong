@@ -1,0 +1,13 @@
+package com.shopdidong;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class ShopdidongFrontEndApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
