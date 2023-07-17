@@ -3,6 +3,7 @@ package com.shopdidong.admin.user;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.shopdidong.common.entity.Role;
@@ -18,6 +19,9 @@ public class UserService {
 	@Autowired
 	private RoleRepository roleRepo;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	public List<User>listAll() {
 		return (List<User>) userRepo.findAll();
 	}
@@ -29,8 +33,13 @@ public class UserService {
 	
 	public void save(User user) {
 		// TODO Auto-generated method stub
+		encodePassword(user);
 		userRepo.save(user);
 	}
 	
+	private void encodePassword(User user) { // encode = mã hóa
+		String encodePassword = passwordEncoder.encode(user.getPassword());
+		user.setPassword(encodePassword);
+	}
 	 
 }
