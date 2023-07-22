@@ -8,6 +8,8 @@
 	<title>HOME - SHOPDIDONG ADMIN</title>
 	
 	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" type="text/css"/>
+	<link rel="stylesheet" th:href="@{/fontawesome/all.css}" />
+	<link rel="stylesheet" th:href="@{/style.css}"/>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 
@@ -98,14 +100,22 @@
 				<tbody>
 					<tr th:each="user : ${listUsers}">
 						<td>[[${user.Id}]]</td>	
-						<td></td>
+						<td class="text center"><i class="fa-solid fa-image-portrait fa-3x icon-pink" ></i></td>
 						<td>[[${user.email}]]</td>						
 						<td>[[${user.firstName}]]</td>						
 						<td>[[${user.lastName}]]</td>	
 						<td>[[${user.roles}]]</td>						
-						<td>[[${user.enabled}]]</td>						
 						<td>
-							Edit &nbsp; Delete
+							<a th:if="${user.enabled == true}" class="fa-solid fa-circle-check fa-2x icon-green" style="text-decoration: none" href=""></a>
+							<a th:if="${user.enabled == false}" class="fa-solid fa-circle-check fa-2x fa-2x icon-red" style="text-decoration: none" href=""></a>
+						</td>
+
+						<td>
+							<a class="fas fa-edit fa-2x icon-blue" style="text-decoration: none" th:href="@{'/users/edit/' + ${user.id}}"
+							title="Edit this user"></a>
+							&nbsp; 
+							<a class="fas fa-trash fa-2x icon-purple" style="text-decoration: none" href=""
+							title="Cancel"></a>
 						</td>
 					</tr>
 				</tbody>

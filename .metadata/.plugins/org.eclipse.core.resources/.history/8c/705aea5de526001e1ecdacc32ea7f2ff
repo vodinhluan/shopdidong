@@ -1,0 +1,9 @@
+package com.shopdidong.admin.user;
+
+public class UserNotFoundException extends Exception {
+
+	public UserNotFoundExeption(String message) {
+		super(message);
+	}
+	
+}

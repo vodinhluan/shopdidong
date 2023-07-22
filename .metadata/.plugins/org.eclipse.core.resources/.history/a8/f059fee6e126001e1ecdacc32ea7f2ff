@@ -1,0 +1,4 @@
+*.icon-red {color: red}
+*.icon-blue {color: blue}
+*.icon-pink {color: deeppink}
+*.icon-green {color: green}
