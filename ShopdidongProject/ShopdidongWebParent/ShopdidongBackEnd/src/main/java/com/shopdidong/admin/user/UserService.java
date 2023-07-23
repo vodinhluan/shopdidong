@@ -57,21 +57,24 @@ public class UserService {
 	}
 	
 	public boolean isEmailUnique(Integer id, String email) {
-		User userByEmail =  userRepo.getUserByEmail(email);
+		User userByEmail =  userRepo.getUserByEmail(email); // lấy user trong db
 		
-		if (userByEmail == null) return true;
-		
-		boolean isCreatingNew = (id == null);
+		if (userByEmail == null) return true; // nếu user không có trong db -> true 
+		// nếu có user trong db -> chạy phía dưới
+		boolean isCreatingNew = (id == null); 
+		// xét user đó :
+		// không có id trong db (id == null) -> true : tạo mới user
+		// có id -> false : edit
 		
 		if (isCreatingNew) {
-			if (userByEmail != null) return false;
+			if (userByEmail != null) return false;  //có đang tạo mới ? xét trong db, nếu != rỗng -> false
+		//	else return true;
 		} else {
-			if (userByEmail.getId() != id) {
+			if(!userByEmail.getId().equals(id)) { // id trong db != id url
 				return false;
 			}
 		}
-		return true;
-		
+		return true;		
 	}
 
 	public User get(Integer id) throws UserNotFoundException {
@@ -80,6 +83,15 @@ public class UserService {
 		} catch (NoSuchElementException ex) {
 			throw new UserNotFoundException("Could not find any user with ID "+ id);
 		}
+	}
+	
+	public void delete(Integer id) throws UserNotFoundException {
+		Long countById =  userRepo.countById(id);
+		if (countById == null || countById == 0) {
+			throw new UserNotFoundException("Could not find any user with ID "+ id);
+		}
+		
+		userRepo.deleteById(id);
 	}
 	 
 }
