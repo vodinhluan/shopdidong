@@ -13,7 +13,6 @@ public class FileUploadUtil {
 	
 	public static void saveFile(String uploadDir, String fileName, 
 			MultipartFile multipartFile) throws IOException {
-		
 		Path uploadPath = Paths.get(uploadDir);
 
 		if (!Files.exists(uploadPath)) {
@@ -24,10 +23,10 @@ public class FileUploadUtil {
 			Path filePath = uploadPath.resolve(fileName);
 			Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
 		} catch (IOException ex) {
-			throw new IOException("Không thể lưu file: " + fileName, ex);
+			throw new IOException("Could not save file: " + fileName, ex);
 		}
 	}
-	
+
 	public static void cleanDir(String dir) {
 		Path dirPath = Paths.get(dir);
 
@@ -35,14 +34,19 @@ public class FileUploadUtil {
 			Files.list(dirPath).forEach(file -> {
 				if (!Files.isDirectory(file)) {
 					try {
+//						System.out.println("Luan oi");
 						Files.delete(file);
+//						System.out.println("Luan dep trai qua");
 					} catch (IOException ex) {
 						System.out.println("Could not delete file: " + file);
 					}
 				}
 			});
 		} catch (IOException ex) {
-			System.out.println("Could not list directory: " + dirPath);
+			System.out.println("Không thể liệt kê thư mục: " + dirPath); 
+			// tại sao khi tạo user lại có thằng này?
+			// vì đây là hàm xóa thư mục cũ, nếu như tạo mới thì không xóa được -> không thể liệt kê cái thư mục này
+			
 		}
 	}
 }
