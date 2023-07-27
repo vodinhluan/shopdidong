@@ -7755,3 +7755,12 @@ org.eclipse.jface.text.BadLocationException
 	at org.eclipse.jface.text.codemining.CodeMiningStrategy.reconcile(CodeMiningStrategy.java:56)
 	at org.eclipse.jface.text.reconciler.Reconciler.process(Reconciler.java:151)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-27 22:37:20.090
+!MESSAGE Classpath changed for project: ShopdidongBackEnd
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-27 22:37:30.926
+!MESSAGE Classpath changed for project: ShopdidongBackEnd
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-28 00:11:18.658
+!MESSAGE Classpath changed for project: ShopdidongBackEnd
