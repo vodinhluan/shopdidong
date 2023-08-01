@@ -1,5 +1,0 @@
-package com.shopdidong.admin;
-
-public @interface GetMapping {
-
-}

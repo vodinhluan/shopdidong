@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="PasswordEncoderTests.testEncodePassword" project="ShopdidongBackEnd" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.shopdidong.admin.user.PasswordEncoderTests" time="0.2" displayname="PasswordEncoderTests" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.user.PasswordEncoderTests]">
-    <testcase name="testEncodePassword" classname="com.shopdidong.admin.user.PasswordEncoderTests" time="0.2" displayname="testEncodePassword()" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.user.PasswordEncoderTests]/[method:testEncodePassword()]"/>
-  </testsuite>
-</testrun>

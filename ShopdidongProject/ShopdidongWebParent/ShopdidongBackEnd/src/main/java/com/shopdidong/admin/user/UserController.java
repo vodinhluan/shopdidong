@@ -21,6 +21,8 @@ import com.shopdidong.admin.FileUploadUtil;
 import com.shopdidong.common.entity.Role;
 import com.shopdidong.common.entity.User;
 
+import jakarta.servlet.http.HttpServletResponse;
+
 @Controller
 public class UserController {
 	@Autowired
@@ -30,7 +32,7 @@ public class UserController {
 	public String listFirstPage(Model model) {
 //		List<User> listUsers = service.listAll();
 // 		model.addAttribute("listUsers", listUsers);
-		return listByPage(1, model, "firstName", "desc", null);
+		return listByPage(1, model, "id", "asc", null);
 	}
 	
 	@GetMapping("/users/new")
@@ -150,5 +152,12 @@ public class UserController {
 		model.addAttribute("keyword", keyword);
 
 		return "users";
+	}
+	
+	@GetMapping("/users/export/csv")
+	public void exportToCSV(HttpServletResponse response) throws IOException {
+		List<User> listUsers = service.listAll();
+		UserCsvExporter exporter = new UserCsvExporter();
+		exporter.export(listUsers, response); 
 	}
 }

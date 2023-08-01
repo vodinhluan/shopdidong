@@ -1,5 +1,0 @@
-package com.shopdidong.admin.user;
-
-public interface UserRepository {
-
-}
