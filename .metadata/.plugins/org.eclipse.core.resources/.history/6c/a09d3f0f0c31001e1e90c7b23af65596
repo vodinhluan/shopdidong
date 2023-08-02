@@ -1,0 +1,5 @@
+package com.shopdidong.admin.security;
+
+public class ShopdidongUserDetail {
+
+}
