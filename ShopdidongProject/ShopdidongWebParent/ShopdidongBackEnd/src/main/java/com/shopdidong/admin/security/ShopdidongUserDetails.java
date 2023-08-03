@@ -67,5 +67,9 @@ public class ShopdidongUserDetails implements UserDetails {
 		// TODO Auto-generated method stub
 		return user.isEnabled();
 	}
+	
+	public String getFullname() {
+ 		return this.user.getFirstName() + " " + this.user.getLastName();
+ 	}
 
 }
