@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0">
-
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 	<title>HOME - SHOPDIDONG ADMIN</title>
-
-	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" type="text/css" />
-	<link rel="stylesheet" th:href="@{/fontawesome/all.css}" />
-	<link rel="stylesheet" th:href="@{/style.css}" />
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" type="text/css"/>
+	<link rel="stylesheet" th:href="@{/fontawesome/all.css}"/>
+	<link rel="stylesheet" th:href="@{/style.css}"/>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-
 </head>
-
 <body>
 	<div class="container-fluid">
 		<div>
@@ -91,18 +86,17 @@
 
 		<div>
 			<form th:action="@{/users/page/1}" class="form-inline m-3">
-				<input type="hidden" name="sortField" th:value="${sortField}" />
-				<input type="hidden" name="sortDir" th:value="${sortDir}" />
+                <input type="hidden" name="sortField" th:value="${sortField}" />
+                <input type="hidden" name="sortDir" th:value="${sortDir}" />
+                Filter:&nbsp;
+                <input type="search" name="keyword" th:value="${keyword}" class="form-control-inline"
+                    style="width: 200px; height: 30px;" required />
+           
+                <button type="submit" class="btn btn-primary mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+    
+                <button type="button"  class="btn btn-secondary mb-2" onclick="clearFilter()" ><i class="fa-solid fa-eraser"></i></button>
 
-				Filter:&nbsp;
-				<input type="search" name="keyword" th:value="${keyword}" class="form-control"
-					style="width: 200px; height: 30px;" required />
-				&nbsp;&nbsp;
-				<input type="submit" value="Search" class="btn btn-primary mt-2" />
-				&nbsp;&nbsp;
-				<input type="button" value="Clear" class="btn btn-secondary mt-2" onclick="clearFilter()" />
-
-			</form>
+            </form>
 		</div>
 
 		<div class="table-responsive">
@@ -167,22 +161,22 @@
 			<nav>
 				<ul class="pagination justify-content-center">
 					<li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
-						<a th:replace="fragments :: page_link(1, 'First')"></a>
+						<a th:replace="~{fragments :: page_link(1, 'First')}"></a>
 
 					</li>
 
 					<li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
-						<a th:replace="fragments :: page_link(${currentPage - 1}, 'Previous')"></a>
+						<a th:replace="~{fragments :: page_link(${currentPage - 1}, 'Previous')}"></a>
 					</li>
 
 					<li th:class="${currentPage != i ? 'page-item': 'page-item active'}"
 						th:each="i : ${#numbers.sequence(1, totalPages)}">
-						<a th:replace="fragments :: page_link(${i}, ${i})"></a>
+						<a th:replace="~{fragments :: page_link(${i}, ${i})}"></a>
 
 					</li>
 
 					<li th:class="${currentPage < totalPages ? 'page-item' : 'page-item disabled'}">
-						<a th:replace="fragments :: page_link(${currentPage + 1}, 'Next')"></a>
+						<a th:replace="~{fragments :: page_link(${currentPage + 1}, 'Next')}"></a>
 
 					</li>
 
