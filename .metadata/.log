@@ -3819,3 +3819,51 @@ java.lang.IllegalArgumentException: Argument not valid
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-08-05 15:07:59.252
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-08-05 15:11:32.762
+!MESSAGE Classpath changed for project: ShopdidongBackEnd
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-05 15:11:33.045
+!MESSAGE [Info]	ESLint server running in node v18.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-05 15:11:33.280
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.0.4 from path "/Applications/SpringToolSuite4.app/Contents/Eclipse/plugins/org.eclipse.wildwebdeveloper_1.0.7.202305232103/node_modules/typescript/lib/tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-05 15:11:33.284
+!MESSAGE [Info]	Typescript Server version info: {version=5.0.4, source=user-setting}
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-08-05 15:19:59.858
+!MESSAGE Classpath changed for project: ShopdidongBackEnd
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-05 15:20:00.041
+!MESSAGE [Info]	ESLint server running in node v18.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-05 15:20:00.171
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.0.4 from path "/Applications/SpringToolSuite4.app/Contents/Eclipse/plugins/org.eclipse.wildwebdeveloper_1.0.7.202305232103/node_modules/typescript/lib/tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-05 15:20:00.176
+!MESSAGE [Info]	Typescript Server version info: {version=5.0.4, source=user-setting}
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-08-05 15:24:15.457
+!MESSAGE Classpath changed for project: ShopdidongBackEnd
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-05 15:24:15.575
+!MESSAGE [Info]	ESLint server running in node v18.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-05 15:24:15.716
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.0.4 from path "/Applications/SpringToolSuite4.app/Contents/Eclipse/plugins/org.eclipse.wildwebdeveloper_1.0.7.202305232103/node_modules/typescript/lib/tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-05 15:24:15.718
+!MESSAGE [Info]	Typescript Server version info: {version=5.0.4, source=user-setting}
