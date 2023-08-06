@@ -14,7 +14,7 @@ import com.shopdidong.common.entity.User;
 
 public class ShopdidongUserDetails implements UserDetails {
 
-	private User user;
+	public User user;
 	
 	
 	public ShopdidongUserDetails(User user) {
@@ -71,5 +71,13 @@ public class ShopdidongUserDetails implements UserDetails {
 	public String getFullname() {
  		return this.user.getFirstName() + " " + this.user.getLastName();
  	}
+	
+	public void setFirstName(String firstName) {
+		this.user.setFirstName(firstName);
+	}
+	
+	public void setLastName(String lastName) {
+		this.user.setLastName(lastName);
+	}
 
 }

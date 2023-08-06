@@ -35,6 +35,10 @@ public class UserService {
 		return (List<User>) userRepo.findAll();
 	}
 	
+	public User getByEmail(String email) {
+		return userRepo.getUserByEmail(email);
+	}
+	
 	public Page<User> listByPage(int pageNum, String sortField, String sortDir, String keyword) {
 		Sort sort = Sort.by(sortField);
 		sort = sortDir.equals("asc") ? sort.ascending():sort.descending();
@@ -117,6 +121,25 @@ public class UserService {
 	
 	public void updateUserEnabledStatus(Integer id, boolean enabled) {
 		userRepo.updateEnabledStatus(id, enabled);
+	}
+	
+	public User updateAccount(User userInform) {
+		User userInDB = userRepo.findById(userInform.getId()).get();
+		
+		if(!userInform.getPassword().isEmpty()) {
+			userInDB.setPassword(userInform.getPassword());
+			encodePassword(userInDB);
+		}
+		
+		if (userInform.getPhotos() != null) {
+			userInDB.setPhotos(userInform.getPhotos());
+			encodePassword(userInDB);
+		}
+		
+		userInDB.setFirstName(userInform.getFirstName());
+		userInDB.setLastName(userInform.getLastName());
+
+		return userRepo.save(userInDB);
 	}
 	 
 }
