@@ -39,8 +39,15 @@ public class WebSecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http
-		.authorizeRequests().requestMatchers("/login")
+		.authorizeRequests().requestMatchers("/")
+		
 		.authenticated()
+		.requestMatchers("/users/**").hasAuthority("Admin")
+
+		.and()
+		.authorizeRequests().requestMatchers("/users")
+		.authenticated()
+		
 		.and()
 		.formLogin()
 			.loginPage("/login")
@@ -50,8 +57,6 @@ public class WebSecurityConfig {
 			.and().rememberMe().key("AbcDefgHijKlmnOpqrs_1234567890")
 			.tokenValiditySeconds(7 * 24 * 60 * 60);
 		return http.build();
-		}
-	
-	
-	 
+		
+	}
 }
