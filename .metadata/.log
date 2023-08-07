@@ -4615,3 +4615,39 @@ java.lang.InterruptedException
 
 !ENTRY org.eclipse.lsp4e 1 0 2023-08-07 16:14:42.456
 !MESSAGE [Info]	Typescript Server version info: {version=5.0.4, source=user-setting}
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-08-07 16:47:14.270
+!MESSAGE Classpath changed for project: ShopdidongBackEnd
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-07 16:47:16.069
+!MESSAGE [Info]	ESLint server running in node v18.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-07 16:47:16.260
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.0.4 from path "/Applications/SpringToolSuite4.app/Contents/Eclipse/plugins/org.eclipse.wildwebdeveloper_1.0.7.202305232103/node_modules/typescript/lib/tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-07 16:47:16.264
+!MESSAGE [Info]	Typescript Server version info: {version=5.0.4, source=user-setting}
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-08-07 16:49:00.866
+!MESSAGE Classpath changed for project: ShopdidongBackEnd
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-07 16:49:01.020
+!MESSAGE [Info]	ESLint server running in node v18.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-07 16:49:01.176
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.0.4 from path "/Applications/SpringToolSuite4.app/Contents/Eclipse/plugins/org.eclipse.wildwebdeveloper_1.0.7.202305232103/node_modules/typescript/lib/tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-07 16:49:01.179
+!MESSAGE [Info]	Typescript Server version info: {version=5.0.4, source=user-setting}
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-07 16:50:15.570
+!MESSAGE [Info]	ESLint server running in node v18.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-07 16:50:15.605
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.0.4 from path "/Applications/SpringToolSuite4.app/Contents/Eclipse/plugins/org.eclipse.wildwebdeveloper_1.0.7.202305232103/node_modules/typescript/lib/tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-07 16:50:15.610
+!MESSAGE [Info]	Typescript Server version info: {version=5.0.4, source=user-setting}
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-08-07 16:50:16.604
+!MESSAGE [Info]	No ES Library found for file: file:///Users/luanvo/Documents/Java/Java%20Spring%20Boot%20Project/ShopDiDongEcommerce/ShopdidongProject/ShopdidongWebParent/ShopdidongBackEnd/src/main/resources/static/js/common_form.js
