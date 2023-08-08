@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="confirmPassword"/>
+		<item key="selection" value="Settings"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="Settings"/>
+			<item value="fullname"/>
+			<item value="name"/>
 			<item value="confirmPassword"/>
 			<item value="&#x09;&#x09; &#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;sec:authentication=&quot;principal.fullname&quot;&gt;&#x0A;"/>
 			<item value="extras"/>
@@ -20,9 +23,6 @@
 			<item value="fragments"/>
 			<item value="email"/>
 			<item value="bad "/>
-			<item value="create"/>
-			<item value="post"/>
-			<item value="currentPage"/>
 		</list>
 		<list key="replacehistory">
 		</list>
