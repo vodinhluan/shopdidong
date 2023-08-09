@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ShopdidongCommon/src/main/java/com/shopdidong/common/entity/Category&apos; to &apos;Category.java&apos;" description="Rename resource &apos;Category&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/shopdidong/common/entity/Category" name="Category.java" stamp="1691576436794" updateReferences="true"/>
+</session>
