@@ -2,19 +2,13 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.hibernate.annotations.Table"/>
     <fullyQualifiedTypeName name="org.springframework.data.annotation.Id"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Role"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.domain.EntityScan"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
     <fullyQualifiedTypeName name="jakarta.persistence.JoinTable"/>
-    <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest"/>
     <fullyQualifiedTypeName name="org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase"/>
     <fullyQualifiedTypeName name="org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace"/>
@@ -31,7 +25,6 @@
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="org.supercsv.prefs.CsvPreference"/>
-    <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="com.shopdidong.common.entity.Role"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.List"/>
@@ -53,4 +46,16 @@
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
     <fullyQualifiedTypeName name="org.slf4j.Logger"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToOne"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="com.shopdidong.common.entity.Category"/>
 </qualifiedTypeNameHistroy>
