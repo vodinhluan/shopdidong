@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Settings"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="Settings"/>
-			<item value="fullname"/>
-			<item value="name"/>
-			<item value="confirmPassword"/>
-			<item value="&#x09;&#x09; &#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;sec:authentication=&quot;principal.fullname&quot;&gt;&#x0A;"/>
-			<item value="extras"/>
-			<item value="extrás"/>
-			<item value="extrá"/>
-			<item value="exstras"/>
-			<item value="security"/>
-			<item value="Search"/>
-			<item value="search"/>
-			<item value="fragments"/>
-			<item value="email"/>
-			<item value="bad "/>
+			<item value="findByid"/>
+			<item value="findById"/>
+			<item value="status"/>
+			<item value="has been disabled&#x0A;"/>
+			<item value="The user ID  has been disabled&#x0A;"/>
+			<item value="&#x09;&#x09;&#x09;&#x09;&lt;input type=&quot;file&quot; id=&quot;fileImage&quot; name=&quot;image&quot; accept=&quot;image/png, image/jpeg&quot;&#x0A;"/>
+			<item value="Create"/>
+			<item value="new"/>
+			<item value="pagination"/>
+			<item value="footer"/>
+			<item value="manage"/>
+			<item value="thymeleaf"/>
+			<item value="users/list"/>
+			<item value="sortDir"/>
+			<item value="sortDirr"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="32"/>
-		<item key="DIALOG_Y_ORIGIN" value="141"/>
+		<item key="DIALOG_X_ORIGIN" value="13"/>
+		<item key="DIALOG_Y_ORIGIN" value="348"/>
 		<item key="DIALOG_WIDTH" value="336"/>
 		<item key="DIALOG_HEIGHT" value="402"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>

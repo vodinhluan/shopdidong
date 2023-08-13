@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: page_head('Người dùng - Quản trị Shopdidong')" />
+
+<body>
+	<div class="container-fluid">
+		<div th:replace="fragments :: navigation"></div>
+
+		<div>
+			<h1>Quản lý Danh mục</h1>
+			<a th:href="@{/categories/new}">Tạo Danh mục Mới</a>
+			&nbsp;|&nbsp;
+			<a th:href="@{/categories/export/csv}">Xuất CSV</a>
+		</div>
+
+		<div th:if="${message != null}" class="alert alert-success text-center">
+			[[${message}]]
+		</div>
+
+		<div>
+			<form th:action="@{/categories/page/1}" class="form-inline m-3">
+				<input type="hidden" name="sortField" th:value="${sortField}" />
+				<input type="hidden" name="sortDir" th:value="${sortDir}" />
+				Lọc:&nbsp;
+				<input type="search" name="keyword" th:value="${keyword}" class="form-control-inline"
+					style="width: 200px; height: 30px;" required />
+
+				<button type="submit" class="btn btn-primary mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+				<button type="button" class="btn btn-secondary mb-2" onclick="clearFilter()"><i
+						class="fa-solid fa-eraser"></i></button>
+
+			</form>
+		</div>
+
+		<div class="table-responsive">
+			<table class="table">
+				<thead class="table-dark">
+					<tr>
+						<th th:replace="fragments :: column_link('id', 'ID Người dùng')" />
+						<th th:replace="fragments :: column_link('image', 'Hình ảnh Danh mục')" />
+						<th th:replace="fragments :: column_link('name', 'Tên Danh mục')" />
+						<th th:replace="fragments :: column_link('alias', 'Bí danh')" />
+						<th th:replace="fragments :: column_link('enabled', 'Kích hoạt')" />
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cat : ${listCategories}">
+						<td>[[${cat.id}]]</td>
+						<td>[[${cat.name}]]</td>
+						<td>[[${cat.alias}]]</td>
+						<td>[[${cat.lastName}]]</td>
+						<td>[[${cat.roles}]]</td>
+						<td>
+						<div th:replace="fragments :: category_status" />
+						</td>
+						<td>
+							<div th:replace="fragments :: category_actions" />
+						</td>	
+
+						<td>
+							<a class="fas fa-edit fa-2x icon-blue" style="text-decoration: none"
+								th:href="@{'/categories/edit/' + ${category.id}}" title="Chỉnh sửa người dùng này"></a>
+							&nbsp;
+							<a class="fas fa-trash fa-2x icon-purple link-delete"
+								th:href="@{'/categories/delete/' + ${category.id}}" th:categoryId="${category.id}"
+								title="Xóa người dùng này"></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+		<div class="text-center m-1" th:if="${totalItems > 0}">
+			<span>Hiển thị người dùng từ #[[${startCount}]] đến #[[${endCount}]] trong tổng số #[[${totalItems}]] người dùng</span>
+		</div>
+
+		<div class="text-center m-1" th:unless="${totalItems > 0}">
+			<span>Không tìm thấy người dùng nào</span>
+		</div>
+
+		<div th:if="${totalPages > 1}"> <!-- Chưa hiểu để làm gì -->
+			<nav>
+				<ul class="pagination justify-content-center">
+					<li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
+						<a th:replace="~{fragments :: page_link(1, 'Đầu tiên')}"></a>
+
+					</li>
+
+					<li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
+						<a th:replace="~{fragments :: page_link(${currentPage - 1}, 'Trước')}"></a>
+					</li>
+
+					<li th:class="${currentPage != i ? 'page-item': 'page-item active'}"
+						th:each="i : ${#numbers.sequence(1, totalPages)}">
+						<a th:replace="~{fragments :: page_link(${i}, ${i})}"></a>
+
+					</li>
+
+					<li th:class="${currentPage < totalPages ? 'page-item' : 'page-item disabled'}">
+						<a th:replace="~{fragments :: page_link(${currentPage + 1}, 'Tiếp theo')}"></a>
+
+					</li>
+
+					<li th:class="${currentPage < totalPages ? 'page-item' : 'page-item disabled'}">
+						<a th:replace="fragments :: page_link(${totalPages}, 'Cuối cùng')"></a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="modal fade text-center" id="confirmModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Xác Nhận Xóa</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+
+					<div class="modal-body">
+						<span id="confirmText"></span>
+					</div>
+
+					<div class="modal-footer">
+						<a class="btn btn-success" href="" id="yesButton">Có</a>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div th:replace="fragments :: footer"></div>
+
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".link-delete").on("click", function (e) {
+				e.preventDefault();
+				link = $(this);
+				//alert($(this).attr("href"));
+				userId = link.attr("userId"),
+				$("#yesButtonuserId = link.attr("userId"),
+				$("#yesButton").attr("href", link.attr("href")),
+				$("#confirmText").text("Bạn có chắc chắn muốn xóa người dùng có ID " + userId + "?");
+				$("#confirmModal").modal('show');
+			});
+		});
+
+		function clearFilter() {
+			window.location = "[[@{/users}]]";
+		}
+
+	</script>
+</body>
+
+</html>

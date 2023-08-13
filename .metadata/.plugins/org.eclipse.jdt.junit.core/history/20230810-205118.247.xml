@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="CategoryRepositoryTests.testPrintHierarchicalCategories" project="ShopdidongBackEnd" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.shopdidong.admin.category.CategoryRepositoryTests" time="0.653" displayname="CategoryRepositoryTests" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.category.CategoryRepositoryTests]">
-    <testcase name="testPrintHierarchicalCategories" classname="com.shopdidong.admin.category.CategoryRepositoryTests" time="0.653" displayname="testPrintHierarchicalCategories()" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.category.CategoryRepositoryTests]/[method:testPrintHierarchicalCategories()]"/>
-  </testsuite>
-</testrun>
