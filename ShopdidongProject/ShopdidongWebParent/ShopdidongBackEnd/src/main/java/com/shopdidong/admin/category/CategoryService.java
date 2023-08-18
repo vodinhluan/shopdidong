@@ -3,11 +3,16 @@ package com.shopdidong.admin.category;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.shopdidong.admin.user.UserNotFoundException;
 import com.shopdidong.common.entity.Category;
+import com.shopdidong.common.entity.Role;
+import com.shopdidong.common.entity.User;
 
 
 @Service
@@ -16,8 +21,49 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository repo;
 	
+	// lấy từ database
 	public List<Category> listAll() {
-		return (List<Category>) repo.findAll();
+		List<Category> rootCategories = repo.findRootCategories();
+		return listHierarchicalCategories(rootCategories);
+	}
+	
+	private List<Category> listHierarchicalCategories(List<Category> rootCategories) {
+		List<Category> hierarchicalCategories = new ArrayList<>();
+		
+		for (Category rootCategory : rootCategories) {
+			hierarchicalCategories.add(Category.copyFull(rootCategory));
+			
+			Set<Category> children = rootCategory.getChildren();
+			
+			for (Category subCategory : children) {
+				String name = "--"+ subCategory.getName();				
+				hierarchicalCategories.add(Category.copyFull(subCategory, name));
+
+				listSubHierarchicalCategories(hierarchicalCategories, subCategory, 1);
+			}
+		}
+		return hierarchicalCategories;
+	}
+	
+	private void listSubHierarchicalCategories(List<Category> hierarchicalCategories ,
+			Category parent, int subLevel) {
+		Set<Category> children = parent.getChildren();
+		int newSubLevel = subLevel + 1;
+
+		for (Category subCategory : children) {
+			String name = "";
+			for (int i = 0; i < newSubLevel; i++) {				
+				name += "--";
+			}
+			name += subCategory.getName();
+			hierarchicalCategories.add(Category.copyFull(subCategory, name));
+			
+			listSubHierarchicalCategories(hierarchicalCategories, subCategory, newSubLevel);
+		}
+	}
+	
+	public Category save(Category category) {
+		return repo.save(category);
 	}
 
 //	public void updateCategoryEnabledStatus(Integer id, boolean enabled) {
@@ -30,22 +76,22 @@ public class CategoryService {
 		
 		for (Category category : categoriesInDb) {
 			if (category.getParent() == null) {
-				categoriesUsedInform.add(new Category(category.getName()));
+				categoriesUsedInform.add(Category.copyIdandName(category));
+				
 				System.out.println(category.getName());
 				Set<Category> children = category.getChildren();
 				
 				for (Category subCategory : children) {
 					String name = "--"+ subCategory.getName();
-					categoriesUsedInform.add(new Category(name));
-					listChildren(categoriesUsedInform, subCategory, 1);
+					categoriesUsedInform.add(Category.copyIdandName(subCategory.getId(), name));
+					listSubCategoriesUsedInform(categoriesUsedInform, subCategory, 1);
 				}
 			}
-			 
 		}
-		
 		return categoriesUsedInform;		
 	}
-	private void listChildren(List<Category> categoriesUsedInform, Category parent, int subLevel) {
+	
+	private void listSubCategoriesUsedInform(List<Category> categoriesUsedInform, Category parent, int subLevel) {
 		int newSubLevel = subLevel + 1;
 		Set<Category> children = parent.getChildren();
 
@@ -57,10 +103,60 @@ public class CategoryService {
 
 			name += subCategory.getName();
 
-			categoriesUsedInform.add(new Category(name));
+			categoriesUsedInform.add(Category.copyIdandName(subCategory.getId(), name));
 
-			listChildren(categoriesUsedInform, subCategory, newSubLevel);
+			listSubCategoriesUsedInform(categoriesUsedInform, subCategory, newSubLevel);
 		}		
+	}
+	
+	
+	// Edit category
+	public Category get(Integer id) throws CategoryNotFoundException {
+		try {
+			return repo.findById(id).get();
+		} catch (NoSuchElementException ex) {
+			throw new CategoryNotFoundException("Could not find any category with ID "+ id);
+		}
+	}
+	
+	// Delete category
+	public void delete(Integer id) throws CategoryNotFoundException {
+		Long countById =  repo.countById(id);
+		if (countById == null || countById == 0) {
+			throw new CategoryNotFoundException("Could not find any category with ID "+ id);
+		}
+		repo.deleteById(id);
+	}
+	
+	public void updateCategoryEnabledStatus(Integer id, boolean enabled) {
+		repo.updateEnabledStatus(id, enabled);
+	}
+	
+	public String checkUnique(Integer id, String name, String alias) {
+		boolean isCreatingNew = (id == null || id == 0);
+		Category categoryName = repo.findByName(name);
+		
+		if (isCreatingNew) {
+			if (categoryName != null)
+			{
+				return "DuplicateName";
+			} else {
+				Category categoryAlias = repo.findByAlias(alias);
+				if (categoryAlias != null) {
+					return "DuplicateAlias";
+				}
+			}
+		} else {
+			if (categoryName != null && categoryName.getId() != id) 
+				return "DuplicateName";
+
+			Category categoryAlias = repo.findByAlias(alias);
+			if (categoryAlias != null && categoryAlias.getId() != id) {
+				return "DuplicateAlias";
+			
+			}
+		}
+		return "OK";
 	}
 	
 }

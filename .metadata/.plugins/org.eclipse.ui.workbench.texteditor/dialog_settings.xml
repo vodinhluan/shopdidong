@@ -8,6 +8,8 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="save"/>
+			<item value="image"/>
 			<item value="findByid"/>
 			<item value="findById"/>
 			<item value="status"/>
@@ -21,8 +23,6 @@
 			<item value="manage"/>
 			<item value="thymeleaf"/>
 			<item value="users/list"/>
-			<item value="sortDir"/>
-			<item value="sortDirr"/>
 		</list>
 		<list key="replacehistory">
 		</list>

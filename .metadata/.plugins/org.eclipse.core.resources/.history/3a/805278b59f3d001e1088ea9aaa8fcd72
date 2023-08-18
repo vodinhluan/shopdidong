@@ -1,0 +1,11 @@
+package com.shopdidong.admin.category;
+
+import org.mockito.InjectMocks;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+public class CategoryServiceTests {
+	@MockBean
+	private CategoryRepository repo;
+	@InjectMocks
+	private CategoryService service;
+}
