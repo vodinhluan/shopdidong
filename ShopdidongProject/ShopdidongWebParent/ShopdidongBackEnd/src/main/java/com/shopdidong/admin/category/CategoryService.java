@@ -153,7 +153,6 @@ public class CategoryService {
 			Category categoryAlias = repo.findByAlias(alias);
 			if (categoryAlias != null && categoryAlias.getId() != id) {
 				return "DuplicateAlias";
-			
 			}
 		}
 		return "OK";
