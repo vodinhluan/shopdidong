@@ -1,7 +1,0 @@
-package com.shopdidong.admin.category;
-
-import org.springframework.data.repository.PagingAndSortingRepository;
-
-public class CategoryRepository implements PagingAndSortingRepository<T, ID> {
-
-}

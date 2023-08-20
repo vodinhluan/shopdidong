@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="CategoryServiceTests.testCheckUniqueInEditModeReturnDuplicateName" project="ShopdidongBackEnd" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.shopdidong.admin.category.CategoryServiceTests" time="0.108" displayname="CategoryServiceTests" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.category.CategoryServiceTests]">
-    <testcase name="testCheckUniqueInEditModeReturnDuplicateName" classname="com.shopdidong.admin.category.CategoryServiceTests" time="0.108" displayname="testCheckUniqueInEditModeReturnDuplicateName()" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.category.CategoryServiceTests]/[method:testCheckUniqueInEditModeReturnDuplicateName()]"/>
-  </testsuite>
-</testrun>
