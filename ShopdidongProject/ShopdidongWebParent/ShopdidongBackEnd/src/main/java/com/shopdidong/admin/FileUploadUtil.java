@@ -52,4 +52,14 @@ public class FileUploadUtil {
 			
 		}
 	}
+
+	public static void removeDir(String dir) {
+		cleanDir(dir);
+		try {
+			Files.delete(Paths.get(dir));
+		} catch (IOException ex) {
+			LOGGER.error("Không thể xóa file: " + dir);
+		}
+		
+	}
 }
