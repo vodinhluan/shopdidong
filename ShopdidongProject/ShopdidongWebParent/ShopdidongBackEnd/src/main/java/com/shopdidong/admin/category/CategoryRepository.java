@@ -2,6 +2,8 @@ package com.shopdidong.admin.category;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -18,6 +20,10 @@ public interface CategoryRepository extends PagingAndSortingRepository<Category,
 //	void updateEnabledStatus(Integer id, boolean enabled);
 	@Query("SELECT c FROM Category c WHERE c.parent.id is NULL")
 	public List<Category> findRootCategories(Sort sort);
+	
+	// Pagination
+	@Query("SELECT c FROM Category c WHERE c.parent.id is NULL")
+	public Page<Category> findRootCategories(Pageable pageable);
 	
 // update enabled status
 	@Query("UPDATE Category c SET c.enabled = ?2 WHERE c.id = ?1")

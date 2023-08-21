@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="fragments :: page_head('Categories - Shopdidong Admin')" />
 
 <body>
@@ -14,22 +15,23 @@
 		</div>
 
 		<div th:if="${message != null}" class="alert alert-success text-center">
-		[[${message}]]
+			[[${message}]]
 		</div>
 
 		<div>
 			<form th:action="@{/users/page/1}" class="form-inline m-3">
-                <input type="hidden" name="sortField" th:value="${sortField}" />
-                <input type="hidden" name="sortDir" th:value="${sortDir}" />
-                Filter:&nbsp;
-                <input type="search" name="keyword" th:value="${keyword}" class="form-control-inline"
-                    style="width: 200px; height: 30px;" required />
-           
-                <button type="submit" class="btn btn-primary mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
-    
-                <button type="button"  class="btn btn-secondary mb-2" onclick="clearFilter()" ><i class="fa-solid fa-eraser"></i></button>
+				<input type="hidden" name="sortField" th:value="${sortField}" />
+				<input type="hidden" name="sortDir" th:value="${sortDir}" />
+				Filter:&nbsp;
+				<input type="search" name="keyword" th:value="${keyword}" class="form-control-inline"
+					style="width: 200px; height: 30px;" required />
 
-            </form>
+				<button type="submit" class="btn btn-primary mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+				<button type="button" class="btn btn-secondary mb-2" onclick="clearFilter()"><i
+						class="fa-solid fa-eraser"></i></button>
+
+			</form>
 		</div>
 
 		<div class="table-responsive">
@@ -39,8 +41,8 @@
 						<th>ID</th>
 						<th>Category Image</th>
 						<th>
-							<a class="text-white" th:href="@{'/categories?sortDir='+${reverseSortDir}}">Category Name</a>	
-							<span th:class="${reverseSortDir == 'desc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}" ></span>					
+							<a class="text-white" th:href="@{'/categories/page/' + ${pageNum} + '?sortDir=' + ${reverseSortDir}}">Category Name</a>
+							<span th:class="${reverseSortDir == 'desc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}"></span>
 						</th>
 						<th>Alias</th>
 						<th>Enabled</th>
@@ -60,15 +62,18 @@
 						</td>
 						<td>
 							<div th:replace="fragments :: category_actions" />
-						</td>						
-				</tr>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
+		
+		<!--PAGINATION-->
 
+		<div th:replace="fragments :: pagination('/categories', 'top-level categories')"></div>
 
 		<div th:replace="fragments :: footer"></div>
-</div>
+	</div>
 
 	<script type="text/javascript">
 		$(document).ready(function () {
@@ -81,10 +86,11 @@
 				$("#confirmModal").modal('show');
 			});
 		});
-	
+
 		function clearFilter() {
 			window.location = "[[@{/categories}]]";
 		}
 	</script>
 </body>
+
 </html>
