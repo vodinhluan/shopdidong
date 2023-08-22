@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.shopdidong.admin.FileUploadUtil;
 import com.shopdidong.admin.user.UserNotFoundException;
+import com.shopdidong.admin.user.UserService;
 import com.shopdidong.common.entity.Category;
 import com.shopdidong.common.entity.Role;
 import com.shopdidong.common.entity.User;
@@ -30,28 +31,39 @@ public class CategoryController {
 	
 	@GetMapping("/categories")
 	public String listFirstPage(@Param("sortDir") String sortDir, Model model) {
-		return listByPage(1, sortDir,model); 
+		return listByPage(1, sortDir, model, null); 
 	}
 	
 	@GetMapping("/categories/page/{pageNum}")
 	public String listByPage(@PathVariable(name="pageNum") int pageNum, 
-			@Param("sortDir") String sortDir, Model model) {
+			@Param("sortDir") String sortDir, Model model,
+			@Param("keyword") String keyword) {
 		
 		if (sortDir ==  null || sortDir.isEmpty()) {
 			sortDir = "asc";
 		}
 
 		CategoryPageInfo pageInfo = new CategoryPageInfo();
-		List<Category> listCategories = service.listByPage(pageInfo, pageNum,sortDir);
+		List<Category> listCategories = service.listByPage(pageInfo, pageNum,sortDir,keyword);
 
+		long startCount = (pageNum - 1) * CategoryService.ROOT_CATEGORIES_PER_PAGE + 1;
+		long endCount = startCount + CategoryService.ROOT_CATEGORIES_PER_PAGE - 1;
+		if (endCount > pageInfo.getTotalElements()) {
+			endCount = pageInfo.getTotalElements();
+		}
+		
 		String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
 
 		model.addAttribute("totalPages",pageInfo.getTotalPages());
-		model.addAttribute("totalElements", pageInfo.getTotalElements());
+		model.addAttribute("totalItems", pageInfo.getTotalElements());
 		model.addAttribute("currentPage", pageNum);
-		
+		model.addAttribute("sortField", "name");
+		model.addAttribute("sortDir", sortDir);
+		model.addAttribute("keyword", keyword);
 		model.addAttribute("listCategories", listCategories);
 		model.addAttribute("reverseSortDir", reverseSortDir);
+		model.addAttribute("startCount", startCount);
+		model.addAttribute("endCount", endCount);
 		return "categories/categories";		
 	}
 	

@@ -18,21 +18,7 @@
 			[[${message}]]
 		</div>
 
-		<div>
-			<form th:action="@{/users/page/1}" class="form-inline m-3">
-				<input type="hidden" name="sortField" th:value="${sortField}" />
-				<input type="hidden" name="sortDir" th:value="${sortDir}" />
-				Filter:&nbsp;
-				<input type="search" name="keyword" th:value="${keyword}" class="form-control-inline"
-					style="width: 200px; height: 30px;" required />
-
-				<button type="submit" class="btn btn-primary mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
-
-				<button type="button" class="btn btn-secondary mb-2" onclick="clearFilter()"><i
-						class="fa-solid fa-eraser"></i></button>
-
-			</form>
-		</div>
+		<div th:replace="fragments::search_form('/categories/page/1')"></div>
 
 		<div class="table-responsive">
 			<table class="table">
@@ -41,7 +27,9 @@
 						<th>ID</th>
 						<th>Category Image</th>
 						<th>
-							<a class="text-white" th:href="@{'/categories/page/' + ${pageNum} + '?sortDir=' + ${reverseSortDir}}">Category Name</a>
+							<a class="text-white"
+								th:href="@{'/categories/page/' + ${pageNum} + '?sortDir=' + ${reverseSortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">Category
+								Name</a>
 							<span th:class="${reverseSortDir == 'desc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}"></span>
 						</th>
 						<th>Alias</th>
@@ -67,12 +55,40 @@
 				</tbody>
 			</table>
 		</div>
-		
+
 		<!--PAGINATION-->
 
-		<div th:replace="fragments :: pagination('/categories', 'top-level categories')"></div>
+		<div th:if="${keyword != null}" class="text-center">
+			<span>Search result does not show categories in hierarchical form</span>
+			<div th:replace="fragments :: pagination('/categories', 'categories')"></div>
+		</div>
 
-		<div th:replace="fragments :: footer"></div>
+		<th:block th:unless="${keyword != null}">
+			<div th:replace="fragments :: pagination('/categories', 'top-level categories')"></div>
+	</div>
+	
+	<div th:replace="fragments :: footer"></div>
+	
+	<div class="modal fade text-center" id="Confirm-Modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="Delete Confirmation">Delete Confirmation</h4>
+					<button type="button" class="close" style="font-size: 30px; border: none; background-color: white;" data-bs-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<span id="modal-Body"></span>
+				</div>
+				<div class="modal-footer">
+					<a class="btn btn-success" href=""id="yesButton">Yes</a>
+					<button type="button" class="btn btn-danger"data-bs-dismiss="modal" >No</button>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	
 	</div>
 
 	<script type="text/javascript">
@@ -82,8 +98,8 @@
 				link = $(this);
 				catId = link.attr("catId");
 				$("#yesButton").attr("href", link.attr("href"));
-				$("#confirmText").text("Are you sure you want to delete this category ID " + catId + "?");
-				$("#confirmModal").modal('show');
+				$("#modal-Body").text("Are you sure you want to delete this user ID " +catId+"?");
+				$("#Confirm-Modal").modal("show");
 			});
 		});
 

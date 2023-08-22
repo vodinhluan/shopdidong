@@ -98,9 +98,24 @@
 		  </ul>
 		</nav>	
 	</div>		
-	</div>	
+	</div>
 	
 
+<!--filter-->
+<div th:fragment="search_form(moduleURL)">
+		<form th:action="@{${moduleURL}}" class="form-inline m-3">
+			<input type="hidden" name="sortField" th:value="${sortField}" />
+			<input type="hidden" name="sortDir" th:value="${sortDir}" />
+			Filter:&nbsp;
+			<input type="search" name="keyword" th:value="${keyword}" class="form-control-inline"
+				style="width: 200px; height: 30px;" required />
+	
+			<button type="submit" class="btn btn-primary mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+	
+			<button type="button" class="btn btn-secondary mb-2" onclick="clearFilter()"><i
+					class="fa-solid fa-eraser"></i></button>
+		</form>
+	</div>
 		
 </body>
 

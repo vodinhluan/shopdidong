@@ -16,22 +16,25 @@
 		<div th:if="${message != null}" class="alert alert-success text-center">
 			[[${message}]]
 		</div>
+		
+		<div th:replace="fragments::search_form('/users/page/1')"></div>
 
-		<div>
-			<form th:action="@{/users/page/1}" class="form-inline m-3">
-                <input type="hidden" name="sortField" th:value="${sortField}" />
-                <input type="hidden" name="sortDir" th:value="${sortDir}" />
-                Filter:&nbsp;
-                <input type="search" name="keyword" th:value="${keyword}" class="form-control-inline"
-                    style="width: 200px; height: 30px;" required />
-           
-                <button type="submit" class="btn btn-primary mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
-    
-                <button type="button"  class="btn btn-secondary mb-2" onclick="clearFilter()" ><i class="fa-solid fa-eraser"></i></button>
-
-            </form>
-		</div>
-
+	<!--<div>
+		<form th:action="@{'/users/page/1'}" class="form-inline m-3">
+			<input type="hidden" name="sortField" th:value="${sortField}" />
+			<input type="hidden" name="sortDir" th:value="${sortDir}" />
+			Filter:&nbsp;
+			<input type="search" name="keyword" th:value="${keyword}" class="form-control-inline"
+				style="width: 200px; height: 30px;" required />
+	
+			<button type="submit" class="btn btn-primary mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+	
+			<button type="button" class="btn btn-secondary mb-2" onclick="clearFilter()"><i
+					class="fa-solid fa-eraser"></i></button>
+		</form>
+	</div>-->
+	
+	
 		<div class="table-responsive">
 			<table class="table">
 				<thead class="table-dark">
@@ -67,10 +70,12 @@
 								style="text-decoration: none" th:href="@{'/users/' + ${user.id} + '/enabled/true'}"
 								title="Enable This User"></a>
 						</td>
-
+						
+						<!--edit and delete-->
 						<td>
 							<a class="fas fa-edit fa-2x icon-blue" style="text-decoration: none"
-								th:href="@{'/users/edit/' + ${user.id}}" title="Edit this user"></a>
+								th:href="@{'/users/edit/' + ${user.id}}" 
+								title="Edit this user"></a>
 							&nbsp;
 							<a class="fas fa-trash fa-2x icon-purple link-delete"
 								th:href="@{'/users/delete/' + ${user.id}}" th:userId="${user.id}"
@@ -83,23 +88,43 @@
 
 		<div th:replace="fragments :: pagination('/users', 'users')"></div>
 
+		<!--<div th:replace="modal_fragments :: modal_dialog" />-->
+
 		<div th:replace="fragments :: footer"></div>
 
 	</div>
 
+	<div class="modal fade text-center" id="Confirm-Modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="Delete Confirmation">Delete Confirmation</h4>
+					<button type="button" class="close" style="font-size: 30px; border: none; background-color: white;" data-bs-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<span id="modal-Body"></span>
+				</div>
+				<div class="modal-footer">
+					<a class="btn btn-success" href=""id="yesButton">Yes</a>
+					<button type="button" class="btn btn-danger"data-bs-dismiss="modal" >No</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<script type="text/javascript">
-		$(document).ready(function () {
-			$(".link-delete").on("click", function (e) {
+		modalURL="/users"
+		$(document).ready(function(){
+			$(".link-delete").on("click", function(e){
 				e.preventDefault();
 				link = $(this);
+				userId= link.attr("userId");
+				$("#yesButton").attr("href",link.attr("href"));
 				//alert($(this).attr("href"));
-				userId = link.attr("userId");
-				$("#yesButton").attr("href", link.attr("href"));
-				$("#confirmText").text("Are you sure you want to delete this user ID " + userId + "?");
-				$("#confirmModal").modal('show');
+				$("#modal-Body").text("Are you sure you want to delete this user ID " +userId+"?");
+				$("#Confirm-Modal").modal("show");
 			});
 		});
-
 		function clearFilter() {
 			window.location = "[[@{/users}]]";
 		}
