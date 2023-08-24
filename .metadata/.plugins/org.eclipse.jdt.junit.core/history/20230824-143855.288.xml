@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="BrandRepositoryTests.testCreateBrand3" project="ShopdidongBackEnd" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.shopdidong.admin.brand.BrandRepositoryTests" time="0.703" displayname="BrandRepositoryTests" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.brand.BrandRepositoryTests]">
+    <testcase name="testCreateBrand3" classname="com.shopdidong.admin.brand.BrandRepositoryTests" time="0.703" displayname="testCreateBrand3()" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.brand.BrandRepositoryTests]/[method:testCreateBrand3()]"/>
+  </testsuite>
+</testrun>
