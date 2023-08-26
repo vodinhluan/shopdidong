@@ -71,28 +71,6 @@
 </div>
 <script type="text/javascript">
 	moduleURL = "[[@{/brands}]]";
-	
-	$(document).ready(function() {
-		dropdownCategories = $("#categories");
-		divChosenCategories = $("#chosenCategories");
-
-		dropdownCategories.change(function() {
-			divChosenCategories.empty();
-			showChosenCategories();
-		});
-	});
-
-	function showChosenCategories() {
-		dropdownCategories.children("option:selected").each(function() {
-			selectedCategory = $(this);
-			catId = selectedCategory.val();
-			catName = selectedCategory.text().replace(/-/g, "");
-
-			divChosenCategories.append("<span class='badge badge-secondary m-1' style='color: red ; background-color: green'>" + catName + "</span>");
-		});
-
-	}
-
 
 </script>
 <script th:src="@{/js/common_form.js}"></script>
