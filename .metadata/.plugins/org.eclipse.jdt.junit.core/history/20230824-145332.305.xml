@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="BrandRepositoryTests.findAllBrands" project="ShopdidongBackEnd" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.shopdidong.admin.brand.BrandRepositoryTests" time="0.794" displayname="BrandRepositoryTests" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.brand.BrandRepositoryTests]">
-    <testcase name="findAllBrands" classname="com.shopdidong.admin.brand.BrandRepositoryTests" time="0.794" displayname="findAllBrands()" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.brand.BrandRepositoryTests]/[method:findAllBrands()]"/>
-  </testsuite>
-</testrun>

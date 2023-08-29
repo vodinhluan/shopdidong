@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="save"/>
+		<item key="selection" value="&#x09;&#x09;enctype=&quot;multipart/form-data&quot;&#x0A;"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="&#x09;&#x09;$.post(url, params, function(response) {"/>
-			<item value="save"/>
-			<item value="image"/>
-			<item value="imagePath"/>
-			<item value="findByid"/>
-			<item value="findById"/>
-			<item value="status"/>
-			<item value="has been disabled&#x0A;"/>
-			<item value="The user ID  has been disabled&#x0A;"/>
-			<item value="&#x09;&#x09;&#x09;&#x09;&lt;input type=&quot;file&quot; id=&quot;fileImage&quot; name=&quot;image&quot; accept=&quot;image/png, image/jpeg&quot;&#x0A;"/>
-			<item value="Create"/>
-			<item value="new"/>
-			<item value="pagination"/>
-			<item value="footer"/>
-			<item value="manage"/>
+			<item value="&#x09;&#x09;enctype=&quot;multipart/form-data&quot;&#x0A;"/>
+			<item value="&#x09;&#x09;&#x09;&#x09;&lt;input type=&quot;file&quot; id=&quot;fileImage&quot; name=&quot;fileImage&quot; accept=&quot;image/png, image/jpeg&quot;&#x0A;"/>
+			<item value="countBy"/>
+			<item value="count"/>
+			<item value="Chosen"/>
+			<item value="choosen"/>
+			<item value="@{${brand.logoPath}}&quot;"/>
+			<item value="getLogoPath@{${brand.logoPath}}&quot;"/>
+			<item value="getLogoPath"/>
+			<item value="default"/>
+			<item value="file"/>
+			<item value="file/"/>
+			<item value="Category"/>
+			<item value="cat"/>
+			<item value="brand.categories"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Brand"/>
+			<item value="brands"/>
+			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
