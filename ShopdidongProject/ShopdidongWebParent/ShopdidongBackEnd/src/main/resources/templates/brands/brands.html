@@ -11,6 +11,8 @@
 
 			<a th:href="@{/brands/new}" class="fas fa-folder-plus fa-2x icon-dark mr-2"></a>
 			<a th:href="@{/brands/export/csv}" class="fas fa-file-csv fa-2x icon-dark mr-2"></a>
+			<div th:replace="fragments::search_form('/brands/page/1')"></div>
+
 
 		</div>
 
@@ -20,7 +22,12 @@
 				<tr>
 					<th>Brand ID</th>
 					<th>Logo</th>
-					<th>Brand Name</th>
+					<th>
+						<a class="text-white"
+							th:href="@{'/brands/page/' + ${currentPage} + '?sortField='+${sortField}+ '&sortDir=' + ${reverseSortDir}}">Brand
+							Name</a>
+						<span th:class="${reverseSortDir == 'desc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}"></span>
+					</th>
 					<th>Categories</th>
 					<th></th>
 				</tr>
@@ -34,7 +41,8 @@
 					<td>[[${brand.name}]]</td>
 					<td>
 						<th:block th:each="brand : ${brand.categories}">
-							<span class='badge badge-secondary m-1' style='color: yellow ; background-color: green' th:text="${brand.name}"></span>
+							<span class='badge badge-secondary m-1' style='color: yellow ; background-color: green'
+								th:text="${brand.name}"></span>
 							<br>
 						</th:block>
 					</td>
@@ -71,8 +79,19 @@
 				</div>
 			</div>
 
+			<!--PAGINATION-->
+
+			<div th:if="${keyword != null}" class="text-center">
+				<span>Search result does not show brands in hierarchical form</span>
+				<div th:replace="fragments :: pagination('/brands', 'brands')"></div>
+			</div>
+
+			<th:block th:unless="${keyword != null}">
+				<div th:replace="fragments :: pagination('/brands', 'top-level categories')"></div>
+
 		</div>
 
+		<div th:replace="fragments :: pagination('/brands', 'brands')"></div>
 
 		<div th:replace="fragments :: footer"></div>
 
