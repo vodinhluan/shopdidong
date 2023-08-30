@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="&#x09;&#x09;enctype=&quot;multipart/form-data&quot;&#x0A;"/>
+		<item key="selection" value="Filter"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="filter"/>
+			<item value="fill"/>
+			<item value="fil"/>
+			<item value="page_link"/>
+			<item value="pageNum"/>
+			<item value="&#x09;&#x09;enctype=&quot;multipart/form-data&quot; onsubmit=&quot;return checkUnique(this)&quot;&#x0A;"/>
 			<item value="&#x09;&#x09;enctype=&quot;multipart/form-data&quot;&#x0A;"/>
 			<item value="&#x09;&#x09;&#x09;&#x09;&lt;input type=&quot;file&quot; id=&quot;fileImage&quot; name=&quot;fileImage&quot; accept=&quot;image/png, image/jpeg&quot;&#x0A;"/>
 			<item value="countBy"/>
@@ -17,12 +23,6 @@
 			<item value="@{${brand.logoPath}}&quot;"/>
 			<item value="getLogoPath@{${brand.logoPath}}&quot;"/>
 			<item value="getLogoPath"/>
-			<item value="default"/>
-			<item value="file"/>
-			<item value="file/"/>
-			<item value="Category"/>
-			<item value="cat"/>
-			<item value="brand.categories"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Brand"/>

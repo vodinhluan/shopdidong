@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="BrandServiceTests.testCheckUniqueInEditModeReturnOK" project="ShopdidongBackEnd" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.shopdidong.admin.brand.BrandServiceTests" time="0.116" displayname="BrandServiceTests" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.brand.BrandServiceTests]">
-    <testcase name="testCheckUniqueInEditModeReturnOK" classname="com.shopdidong.admin.brand.BrandServiceTests" time="0.116" displayname="testCheckUniqueInEditModeReturnOK()" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.brand.BrandServiceTests]/[method:testCheckUniqueInEditModeReturnOK()]"/>
-  </testsuite>
-</testrun>
