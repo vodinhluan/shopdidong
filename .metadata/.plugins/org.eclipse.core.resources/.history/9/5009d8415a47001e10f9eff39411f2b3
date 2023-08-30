@@ -1,0 +1,78 @@
+package com.shopdidong.admin.product;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import java.util.Date;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.annotation.Rollback;
+
+import com.shopdidong.common.entity.Brand;
+import com.shopdidong.common.entity.Category;
+import com.shopdidong.common.entity.Product;
+
+
+@DataJpaTest
+@AutoConfigureTestDatabase(replace = Replace.NONE)
+@Rollback(false)
+public class ProductRepositoryTests {
+	@Autowired
+	private ProductRepository repo;
+	
+	@Autowired
+	private TestEntityManager entityManager;
+	
+	@Test
+	public void testCreateProduct() {
+		// Create brand & category
+		Brand brand = entityManager.find(Brand.class, 3);
+		Category category = entityManager.find(Category.class, 8);
+		
+		// Create product & set attributes
+		Product product = new Product();
+		product.setName("Macbook Air M2");
+		product.setAlias("macbook_m2");
+		product.setShortDescription("This is a macbook air M2");
+		product.setFullDescription("This is one of super laptop: Macbook air M2");
+		
+		// Set brand & category
+		product.setBrand(brand);
+		product.setCategory(category);
+		
+		// Set price, cost, enabled, in stock, created time, updated time
+		product.setPrice(19);
+		product.setCost(17);
+		product.setEnabled(true);
+		product.setInStock(false);
+		product.setCreatedTime(new Date());
+		product.setUpdatedTime(new Date());
+		
+		Product savedProduct = repo.save(product);
+		assertThat(savedProduct).isNotNull();
+		assertThat(savedProduct.getId()).isGreaterThan(0);	
+	}
+	
+	@Test
+	public void testListAllProducts() {
+		// create iterable products 
+		Iterable<Product> iterableProducts = repo.findAll();
+		iterableProducts.forEach(System.out::println);
+	}
+	
+	@Test
+	public void testGetProduct() {
+		// create id -> get product(id)
+		Integer id = 1;
+	}
+	
+	@Test
+	public void testDeleteProducts() {
+		
+	}
+
+	
+}
