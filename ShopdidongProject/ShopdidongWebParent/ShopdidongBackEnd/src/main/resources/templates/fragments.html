@@ -116,6 +116,20 @@
 					class="fa-solid fa-eraser"></i></button>
 		</form>
 	</div>
+	
+	
+	<!--Status Product-->
+	<div th:fragment="product_status" th:remove="tag">
+		<a th:if="${product.enabled == true}" class="fa-solid fa-circle-check fa-2x icon-green"
+			style="text-decoration: none" th:href="@{'/products/' + ${product.id} + '/enabled/false'}"
+			title="Disable this product">
+		</a>
+
+		<a th:if="${product.enabled == false}" class="fa-solid fa-circle fa-2x fa-2x icon-dark"
+			style="text-decoration: none" th:href="@{'/products/' + ${product.id} + '/enabled/true'}"
+			title="Enable this product">
+		</a>
+	</div>
 
 </body>
 

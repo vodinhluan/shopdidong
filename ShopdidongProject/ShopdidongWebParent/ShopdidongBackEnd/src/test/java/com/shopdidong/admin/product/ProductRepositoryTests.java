@@ -30,15 +30,15 @@ public class ProductRepositoryTests {
 	@Test
 	public void testCreateProduct() {
 		// Create brand & category
-		Brand brand = entityManager.find(Brand.class, 19);
-		Category category = entityManager.find(Category.class, 8);
+		Brand brand = entityManager.find(Brand.class, 20);
+		Category category = entityManager.find(Category.class, 22);
 		
 		// Create product & set attributes
 		Product product = new Product();
-		product.setName("Laptop LG Gram");
-		product.setAlias("laptop_lggram");
-		product.setShortDescription("This is a laptop LG Gram");
-		product.setFullDescription("This is one of super laptop: laptop LG Gram");
+		product.setName("Samsung Galaxy S22 Ultra");
+		product.setAlias("ssgalaxys22ultra");
+		product.setShortDescription("This is a Samsung Galaxy S22 Ultra");
+		product.setFullDescription("This is a Samsung Galaxy S22 Ultra <3 <3 <3");
 		
 		// Set brand & category
 		product.setBrand(brand);
@@ -89,7 +89,7 @@ public class ProductRepositoryTests {
 	
 	@Test
 	public void testDeleteProduct() {
-		Integer id = 4;
+		Integer id = 8;
 		repo.deleteById(id);
 	// sau khi delete by id có nghĩa là xóa sản phẩm xong,
 	// tôi sẽ kiểm tra bằng cách repo.findById 
