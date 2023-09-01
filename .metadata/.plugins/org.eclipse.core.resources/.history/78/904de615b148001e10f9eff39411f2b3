@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<head th:replace="fragments :: page_head(${pageTitle}, 'tag')" />
+	<link rel="stylesheet" th:href="@{/richtext/richtext.min.css}" />
+	<script th:src="@{/richtext/jquery.richtext.min.js}"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div th:replace="navigation :: menu"></div>
+		<div>
+			<h2>Manage Products</h2>
+
+			<a th:href="@{/products/new}" class="fas fa-folder-plus fa-2x icon-dark mr-2"></a>
+			<a th:href="@{/products/export/csv}" class="fas fa-file-csv fa-2x icon-dark mr-2"></a>
+			<div th:replace="fragments::search_form('/products/page/1')"></div>
+
+
+		</div>
+
+
+		<table class="table">
+			<thead class="table-dark">
+				<tr>
+					<th>ID</th>
+					<th>Main Image</th>
+					<th>Product Name</th>
+					<th>Brand</th>
+					<th>Category</th>
+					<th>Enabled</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product : ${listProducts}">
+					<td>[[${product.id}]]</td>
+					<td>
+
+					</td>
+					<td>[[${product.name}]]</td>
+					<td>[[${product.brand.name}]]</td>
+					<td>[[${product.category.name}]]</td>
+					<td>
+						<div th:replace="fragments :: product_status" />
+					</td>
+					<td>
+						<a class="fas fa-file-alt fa-2x icon-green" 
+						th:href="@{'/products/detail/' + ${product.id}}"
+						title="View details of this product"></a>
+						&nbsp;
+						
+						<a class="fas fa-edit fa-2x icon-blue" style="text-decoration: none"
+							th:href="@{'/products/edit/' + ${product.id}}"
+							title="Edit this product"></a>
+						&nbsp;
+						
+						<a class="fas fa-trash fa-2x icon-purple link-delete" 
+						th:href="@{'/products/delete/' + ${product.id}}" th:productId="${product.id}"
+						title="Delete this product"></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="modal fade text-center" id="Confirm-Modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="Delete Confirmation">Delete Confirmation</h4>
+						<button type="button" class="close"
+							style="font-size: 30px; border: none; background-color: white;"
+							data-bs-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<span id="modal-Body"></span>
+					</div>
+					<div class="modal-footer">
+						<a class="btn btn-success" href="" id="yesButton">Yes</a>
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+					</div>
+				</div>
+			</div>
+
+			<!--PAGINATION-->
+
+			<div th:if="${keyword != null}" class="text-center">
+				<span>Search result does not show products in hierarchical form</span>
+				<div th:replace="fragments :: pagination('/products', 'products')"></div>
+			</div>
+
+			<th:block th:unless="${keyword != null}">
+				<div th:replace="fragments :: pagination('/products', 'top-level categories')"></div>
+
+		</div>
+
+		<div th:replace="fragments :: pagination('/products', 'products')"></div>
+
+		<div th:replace="fragments :: footer"></div>
+
+	</div>
+	<script th:src="@{/js/common_list.js}"></script>
+	<script type="text/javascript">
+		moduleURL = "[[@{/products}]]";
+
+		$(document).ready(function () {
+			$(".link-delete").on("click", function (e) {
+				e.preventDefault();
+				link = $(this);
+				productId = link.attr("productId");
+				$("#yesButton").attr("href", link.attr("href"));
+				$("#modal-Body").text("Are you sure you want to delete this product ID " + productId + "?");
+				$("#Confirm-Modal").modal("show");
+			});
+		});
+
+		function clearFilter() {
+			window.location = "[[@{/products}]]";
+		}
+	</script>
+</body>
+
+</html>
