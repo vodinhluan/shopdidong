@@ -1,0 +1,6 @@
+package com.shopdidong.admin.brand;
+
+@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Brand not found")
+public class BrandNotFoundRestException extends Exception {
+	
+}
