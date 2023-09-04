@@ -100,6 +100,39 @@
 				});
 			});
 		}
+		
+		
+		function checkUnique(form) {
+		productId = $("#id").val();
+		productName = $("#name").val();
+
+		csrfValue = $("input[name='_csrf']").val();
+
+		url = "[[@{/products/check_unique}]]";
+
+		params = {id: productId, name: productName, _csrf: csrfValue};
+
+		$.post(url, params, function(response) {
+			if (response == "OK") {
+				form.submit();
+			} else if (response == "Duplicate") {
+				showModalDialog("Cảnh báo","There is another product having the name " + productName);	
+			} else {
+				showModalDialog("Lỗi","Unknown response from server");
+			}
+
+		}).fail(function() {
+			showModalDialog("Lỗi","Could not connect to the server");
+		});
+
+		return false;
+	}	
+	
+	function showModalDialog(title, message) {
+		$("#modalTitle").text(title);
+		$("#modalBody").text(message);
+		$("#modalDialog").modal("show");
+	}
 	</script>
 
 	<script th:src="@{/js/common_form.js}"></script>

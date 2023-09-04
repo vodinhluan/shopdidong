@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Filter"/>
+		<item key="selection" value="Category"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="category"/>
+			<item value="brand"/>
+			<item value="brandId"/>
 			<item value="filter"/>
 			<item value="fill"/>
 			<item value="fil"/>
@@ -20,11 +23,9 @@
 			<item value="count"/>
 			<item value="Chosen"/>
 			<item value="choosen"/>
-			<item value="@{${brand.logoPath}}&quot;"/>
-			<item value="getLogoPath@{${brand.logoPath}}&quot;"/>
-			<item value="getLogoPath"/>
 		</list>
 		<list key="replacehistory">
+			<item value="product"/>
 			<item value="Brand"/>
 			<item value="brands"/>
 			<item value=""/>

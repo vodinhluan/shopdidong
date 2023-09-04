@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="ProductRepositoryTests" project="ShopdidongBackEnd" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="com.shopdidong.admin.product.ProductRepositoryTests" time="0.751" displayname="ProductRepositoryTests" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.product.ProductRepositoryTests]">
-    <testcase name="testCreateProduct" classname="com.shopdidong.admin.product.ProductRepositoryTests" time="0.692" displayname="testCreateProduct()" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.product.ProductRepositoryTests]/[method:testCreateProduct()]"/>
-    <testcase name="testDeleteProducts" classname="com.shopdidong.admin.product.ProductRepositoryTests" time="0.004" displayname="testDeleteProducts()" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.product.ProductRepositoryTests]/[method:testDeleteProducts()]"/>
-    <testcase name="testGetProduct" classname="com.shopdidong.admin.product.ProductRepositoryTests" time="0.003" displayname="testGetProduct()" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.product.ProductRepositoryTests]/[method:testGetProduct()]"/>
-    <testcase name="testListAllProducts" classname="com.shopdidong.admin.product.ProductRepositoryTests" time="0.049" displayname="testListAllProducts()" uniqueid="[engine:junit-jupiter]/[class:com.shopdidong.admin.product.ProductRepositoryTests]/[method:testListAllProducts()]"/>
-  </testsuite>
-</testrun>
