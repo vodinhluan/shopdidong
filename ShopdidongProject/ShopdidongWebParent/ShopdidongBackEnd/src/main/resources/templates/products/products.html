@@ -17,7 +17,10 @@
 
 		</div>
 
-
+		<div th:if="${message != null}" class="alert alert-success text-center">
+			[[${message}]]
+		</div>
+		
 		<table class="table">
 			<thead class="table-dark">
 				<tr>
@@ -43,19 +46,17 @@
 						<div th:replace="fragments :: product_status" />
 					</td>
 					<td>
-						<a class="fas fa-file-alt fa-2x icon-green" 
-						th:href="@{'/products/detail/' + ${product.id}}"
-						title="View details of this product"></a>
+						<a class="fas fa-file-alt fa-2x icon-green" th:href="@{'/products/detail/' + ${product.id}}"
+							title="View details of this product"></a>
 						&nbsp;
-						
+
 						<a class="fas fa-edit fa-2x icon-blue" style="text-decoration: none"
-							th:href="@{'/products/edit/' + ${product.id}}"
-							title="Edit this product"></a>
+							th:href="@{'/products/edit/' + ${product.id}}" title="Edit this product"></a>
 						&nbsp;
-						
-						<a class="fas fa-trash fa-2x icon-purple link-delete" 
-						th:href="@{'/products/delete/' + ${product.id}}" th:productId="${product.id}"
-						title="Delete this product"></a>
+
+						<a class="fas fa-trash fa-2x icon-purple link-delete"
+							th:href="@{'/products/delete/' + ${product.id}}" th:productId="${product.id}"
+							title="Delete this product"></a>
 					</td>
 				</tr>
 			</tbody>

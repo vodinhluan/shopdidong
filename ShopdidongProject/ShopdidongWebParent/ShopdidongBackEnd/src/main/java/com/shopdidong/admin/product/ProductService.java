@@ -5,10 +5,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.shopdidong.common.entity.Product;
+import jakarta.transaction.Transactional;
 
 @Service
+@Transactional
+// phương thức hoặc lớp 
+// được đánh dấu cần được thực thi trong một giao dịch.
+// đảm bảo rằng tất cả các thay đổi
+// được thực hiện trong phương thức 
+// hoặc lớp đó sẽ được lưu vào database cùng một lúc.
+
 public class ProductService {
 	@Autowired
 	private ProductRepository repo;
@@ -47,4 +54,9 @@ public class ProductService {
 		}
 		return "OK";
 	}
+	
+	public void updateProductEnabledStatus(Integer id, boolean enabled) {
+		repo.updateEnabledStatus(id, enabled);
+	}
+	
 }

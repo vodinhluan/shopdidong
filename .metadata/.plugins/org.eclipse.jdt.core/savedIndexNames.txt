@@ -88,7 +88,6 @@ INDEX VERSION 1.134+/Users/luanvo/Documents/Java/Java Spring Boot Project/ShopDi
 1291729422.index
 3600846703.index
 2240966298.index
-1937937690.index
 512885834.index
 2977153217.index
 1831418457.index
