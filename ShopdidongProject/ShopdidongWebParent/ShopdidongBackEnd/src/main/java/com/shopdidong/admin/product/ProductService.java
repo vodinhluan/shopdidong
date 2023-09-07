@@ -59,4 +59,14 @@ public class ProductService {
 		repo.updateEnabledStatus(id, enabled);
 	}
 	
+	public void delete(Integer id) throws ProductNotFoundException {
+		Long countById = repo.countById(id);
+		
+		if (countById == null || countById == 0) {
+			throw new ProductNotFoundException("Khong tim thay id");
+		}
+		
+		repo.deleteById(id);
+	}
+	
 }

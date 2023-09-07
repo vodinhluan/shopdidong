@@ -7,7 +7,6 @@
 	<div>
 		<h2>Manage Brands | [[${pageTitle}]]</h2>	
 	</div>
-
 	<form th:action="@{/brands/save}" method="post" style="max-width: 500px; margin: 0 auto"
 		enctype="multipart/form-data" onsubmit="return checkUnique(this)"
 		th:object="${brand}">
@@ -19,7 +18,6 @@
 				<input type="text" class="form-control" th:field="*{name}" required minlength="3" maxlength="45"  />
 			</div>
 		</div>
-
 		<div class="form-group row">
 			<label class="col-sm-4 col-form-label">Brand Logo:</label>
 			<div class="col-sm-8">

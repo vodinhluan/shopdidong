@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-
-	<head th:replace="fragments :: page_head(${pageTitle}, 'tag')" />
-	<link rel="stylesheet" th:href="@{/richtext/richtext.min.css}" />
+	<head th:replace="fragments :: page_head(${pageTitle}, 'tag')"/>
+	<link rel="stylesheet" th:href="@{/richtext/richtext.min.css}"/>
 	<script th:src="@{/richtext/jquery.richtext.min.js}"></script>
 </head>
-
 <body>
 	<div class="container-fluid">
 		<div th:replace="navigation :: menu"></div>
 		<div>
 			<h2>Manage Products | [[${pageTitle}]]</h2>
 		</div>
-
 		<form th:action="@{/products/save}" method="post" enctype="multipart/form-data"
 			onsubmit="return checkUnique(this)" th:object="${product}">
 			<input type="hidden" th:field="*{id}" />
@@ -39,10 +35,10 @@
 
 				<div class="tab-content">
 					<div class="tab-pane active p-3" id="overview" role="tabpanel">
-						<div th:replace="products/product_overview :: content"></div>
+						<div th:replace="products/product_overview :: content"> </div>
 					</div>
 					<div class="tab-pane" id="description" role="tabpanel">
-						<div th:replace="products/product_description :: content"></div>
+						<div th:replace="products/product_description :: content"> </div>
 					</div>
 					<div class="tab-pane" id="images" role="tabpanel">Images</div>
 					<div class="tab-pane" id="details" role="tabpanel">Details</div>
@@ -59,7 +55,6 @@
 
 
 		<div th:replace="modal_fragments :: modal_dialog"></div>
-
 		<div th:replace="fragments :: footer"></div>
 
 	</div>
@@ -76,7 +71,6 @@
 		dropdownCategories = $("#category");
 
 		$(document).ready(function () {
-
 
 			$("#shortDescription").richText();
 			$("#fullDescription").richText();
@@ -101,7 +95,6 @@
 			});
 		}
 		
-		
 		function checkUnique(form) {
 		productId = $("#id").val();
 		productName = $("#name").val();
@@ -120,11 +113,9 @@
 			} else {
 				showModalDialog("Lỗi","Unknown response from server");
 			}
-
 		}).fail(function() {
 			showModalDialog("Lỗi","Could not connect to the server");
 		});
-
 		return false;
 	}	
 	
@@ -137,5 +128,4 @@
 
 	<script th:src="@{/js/common_form.js}"></script>
 </body>
-
 </html>

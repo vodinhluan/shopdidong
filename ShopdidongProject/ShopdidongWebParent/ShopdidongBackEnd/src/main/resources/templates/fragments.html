@@ -5,21 +5,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0">
 	<title>[[${title}]]</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-	<link rel="stylesheet" type="text/css" th:href="@{/fontawesome/all.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/fontawesome/all.css}"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/style.css}" />
-
 	<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	<script type="text/javascript" th:src="@{/js/common.js}"></script>
 </head>
 
 <body>
-
 	<div th:fragment="footer" class="text-center m-3">
 		<p>Shopdidong Control Panel - Copyright &copy; Shopdidong</p>
 	</div>
-
 	<th th:fragment="column_link(fieldName, columnLabel)">
 		<a class="text-white"
 			th:href="@{'/users/page/' + ${currentPage} + '?sortField=' + ${fieldName}  +'&sortDir=' + ${sortField != fieldName ? sortDir : reverseSortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">
@@ -40,7 +37,6 @@
 			style="text-decoration: none" th:href="@{'/categories/' + ${cat.id} + '/enabled/false'}"
 			title="Disable this category">
 		</a>
-
 		<a th:if="${cat.enabled == false}" class="fa-solid fa-circle fa-2x fa-2x icon-dark"
 			style="text-decoration: none" th:href="@{'/categories/' + ${cat.id} + '/enabled/true'}"
 			title="Enable this category">
@@ -109,9 +105,7 @@
 			Filter:&nbsp;
 			<input type="search" name="keyword" th:value="${keyword}" class="form-control-inline"
 				style="width: 200px; height: 30px;" required />
-
 			<button type="submit" class="btn btn-primary mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
-
 			<button type="button" class="btn btn-secondary mb-2" onclick="clearFilter()"><i
 					class="fa-solid fa-eraser"></i></button>
 		</form>
@@ -124,7 +118,6 @@
 			style="text-decoration: none" th:href="@{'/products/' + ${product.id} + '/enabled/false'}"
 			title="Disable this product">
 		</a>
-
 		<a th:if="${product.enabled == false}" class="fa-solid fa-circle fa-2x fa-2x icon-dark"
 			style="text-decoration: none" th:href="@{'/products/' + ${product.id} + '/enabled/true'}"
 			title="Enable this product">

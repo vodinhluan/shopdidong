@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <body>
 	<div th:fragment="menu">
 			<form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
- 				<input type="submit" />
+ 				<input type="submit"/>
  			</form>
-			
 			<nav class = "navbar navbar-expand-lg bg-dark navbar-dark">
-				
 			    <a class="navbar-brand" th:href="@{/}">
-			        <img th:src="@{/images/logo_rm.png}" width="80px" height="80px"  />
+			        <!--<img th:src="@{/images/logo_rm.png}" width="80px" height="80px"  />-->
+			        <img th:src="@{/images/barca.png}" width="80px" height="80px"/>
 			    </a>
 			    
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbar">
@@ -28,7 +26,6 @@
 								<a class="nav-link" th:href="@{/categories}">Categories</a>
 							</li>
 							</th>
-							
 							
 							<th th:block sec:authorize="hasAnyAuthority('Admin', 'Editor')">
 							<li class="nav-item">
@@ -111,7 +108,6 @@
 					</div>
 			</nav>
 		</div>
-		
 	
 </body>
 
